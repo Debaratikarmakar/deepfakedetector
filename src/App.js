@@ -1,5 +1,5 @@
 // App.js
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './App.css'; // Import CSS file for styling
 
 // Functional component for the video uploader
@@ -39,7 +39,7 @@ const VideoProcessor = ({ videoUrl }) => {
   const processVideo = async () => {
     setResult(null); // Reset result state
     setProcessing(true);
-
+  
     try {
       // Call your deepfake detection API here with the video URL
       const detectionResult = await detectDeepfake(videoUrl);
@@ -63,6 +63,22 @@ const VideoProcessor = ({ videoUrl }) => {
       }, 5000); // Simulating longer processing time for video
     });
   };
+
+  useEffect(()=>{
+    const overlay = document.createElement("div");
+    overlay.innerHTML = `
+    <div  style="z-index: 1000; position: absolute; top: 20px; left: 20px; background-color: rgba(255, 255, 255, 0.8); padding: 10px;">
+        <p style="color: red;">Overlay Content</p>
+    </div>
+    `;
+    
+    // Get the YouTube video container element
+    const videoContainer = document.querySelector('.html5-video-player');
+    
+    // Append the overlay content to the video container
+    if(videoContainer)
+    videoContainer.appendChild(overlay);
+  },[])
 
   return (
     <div className="center bg-red-500">
@@ -101,7 +117,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1 className="text-red-600 font-bold">Fake Detection</h1>
+      <h1 className="text-red-600 font-bold text-[20px]">Fake Detection</h1>
       <VideoUploader onVideoUpload={handleVideoUpload} />
       <VideoProcessor videoUrl={videoUrl} />
     </div>

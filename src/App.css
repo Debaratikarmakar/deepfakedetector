@@ -1,24 +1,85 @@
-.App {
+.app {
   text-align: center;
 }
 
-/* .lists{
-  display: flex;
-} */
-
-.button{
-  background-color: rgb(210, 0, 0);
-  border: none;
-  border-radius: 30px;
-  padding: 20px 30px;
-  font-weight: bold;
-  font-size: medium;
-  color: aliceblue;
+.title {
+  margin-bottom: 20px;
 }
 
-.button:hover {
-  border: 1px solid black;
-  color: yellow;
-  background-color: rgb(255, 66, 66);
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.submitButton {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  
+}
+
+.submitButton:hover{
+  background-color: rgb(45, 8, 210);
+}
+
+.startButton {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.videoContainer {
+  margin-top: 20px;
+}
+
+.videoPlayer {
+  max-width: 100%;
+}
+
+.processingBox {
+  background-color: rgb(255, 221, 0);
+  border: 2px solid rgb(188, 129, 10);
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.originalBox {
+  border: 2px solid rgb(0, 76, 0);
+  background-color: green;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.fakeBox {
+  border: 2px solid rgb(85, 0, 0);
+  background-color: red;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+
+.inputField {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 300px; /* Adjust width as needed */
+  border: 2px solid blue; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  outline: none; /* Remove outline on focus */
+}
+
+.inputField::placeholder {
+  color: gray; /* Placeholder color */
+}
+
+.inputField:focus {
+  border-color: darkblue; /* Border color on focus */
 }
